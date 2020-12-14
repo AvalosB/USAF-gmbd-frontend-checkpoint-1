@@ -22,4 +22,7 @@ describe('Home page', ()=>{
         expect(cy.get('.browsing-movies-all')).toExist()
     })
 
+    
+
 })
+

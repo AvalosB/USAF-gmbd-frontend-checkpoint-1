@@ -1,5 +1,6 @@
 import './App.css';
 import { Component } from 'react';
+import NavigationBar from './components/nav-bar'
 import { BrowserRouter as Router,
           Route,
           Link,
@@ -34,6 +35,7 @@ class App extends Component {
 
     return (
       <div>
+        <NavigationBar />
         {loginScreenCondition}
       </div>
     )

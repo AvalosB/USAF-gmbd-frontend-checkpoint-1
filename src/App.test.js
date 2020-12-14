@@ -1,6 +1,7 @@
 import React from 'react';
-import {shallow} from 'enzyme'
+import {shallow, render, mount} from 'enzyme'
 import App from './App';
+import Navbar from './components/nav-bar'
 
 test('displays a login section on the main page',()=>{
   const wrapper = shallow(<App/>)
@@ -47,5 +48,17 @@ test('clicking the login button changes isLoggedIn state from false to true', ()
 
   expect(wrapper.instance().logIn).toHaveBeenCalled()
   // expect(wrapper.state().isLoggedIn).toEqual(true);
-
 })
+
+// test('home page contains a navigation bar', ()=>{
+  // const wrapper = shallow(<App/>);
+  // const mntWrapper = mount(<App/>); 
+  // const navigationBarComponent = shallow(<Navbar/>)
+  // const navBar = wrapper.find('#nav-bar-main')
+
+  // expect(wrapper.equals(navigationBarComponent)).toEqual(true) 
+
+  //const wrapper = shallow(<App/>)
+  // expect(mntWrapper.find('#nav-bar-main')).toHaveLength(1); 
+      
+// })
