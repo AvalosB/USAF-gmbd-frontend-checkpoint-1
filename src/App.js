@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import { BrowserRouter as Router,
+          Route,
+          Link,
+          Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { 
+    isLoggedIn: false
+   };
+  
+  logIn = (event) => {
+    event.preventDefault()
+    console.log("function has been run");
+    this.setState({isLoggedIn: true})
+  }
+
+
+  render() {
+   
+   const loginScreenCondition = this.state.isLoggedIn ? 
+    <div className="browsing-movies-all">browsing movies all</div>
+    :
+    (
+       <form onSubmit={this.logIn} className="login-main-section">
+         <label className='email-Label'>Email:</label>
+         <input type='text' className='email-Input' placeholder="Email" />
+         <label className='password-Label'>Password:</label>
+         <input type='text' className='password-Input' placeholder="Password" />
+         <button className='login-Button' type='submit' >Login</button>
+      </form>
+   )
+
+    return (
+      <div>
+        {loginScreenCondition}
+      </div>
+    )
+  }
 }
 
 export default App;
